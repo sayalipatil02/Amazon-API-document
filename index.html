@@ -1,0 +1,504 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="home.css" rel="stylesheet">
+    <script src="home.js"> </script>
+    <style>
+        body{
+            background-color: white;
+            color:black;
+        }
+        .mydark{
+            background-color: black;
+            color:white;
+        }
+    </style>
+    <script>
+        function changeMode(){
+        let mybody = document.body;
+        mybody.classList.toggle('mydark')
+}
+    </script>
+</head>
+
+<body>
+
+<div id="coupon">
+    <button id="closebutton" onClick="closeCoupon()" >&times;</button>
+    <img src="image/Amazon coupon 2.jpg" alt="coupon">
+    
+</div>
+
+<div id="navapana1">
+    <img id="Amazonlogo" src="image/Amazon logo2.jpg" alt="Amazon">
+    <a> <img id="all" src="image/allimg.jpg" alt="all"> </a>
+    <div id="dropdown"><select></select></div>
+    <img id="searchimg" src="image/searchimg.jpg" alt="search">
+    <button class="glyphicon glyphicon-certificate" id="modebox" onClick="changeMode()">  </button>
+    
+
+
+<button id="modebox" onClick="geolocation()">
+    <img src='https://openweathermap.org/img/w/01d.png'/>
+</button>
+<span class="geo" id="out"></span>
+<div id="icon"></div>
+
+<script>
+    let x = document.getElementById('out');
+    function geolocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showPosition)
+        }else{
+            x.innerText="Geo Not Supported"
+        }
+    }
+
+    function showPosition(data){
+        console.log(data)
+        sessionStorage.setItem('data',data)
+       
+        let latitude = data.coords.latitude;
+        let longitude = data.coords.longitude
+        const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&mode=json&units=metric&cnt=1&appid=fbf712a5a83d7305c3cda4ca8fe7ef29`;
+
+        
+        fetch(url,{method:'GET'})
+       
+        .then((res) => res.json())
+      
+        .then((data) => {
+            let cityName = data.city.name
+            let weather = data.list[0].temp.day
+            x.innerText = `Weather of ${cityName} is ${weather} °C`
+       
+        })
+    }
+</script>
+
+</div>
+
+<div id="navbar2">
+    
+    <div id="navimgmainbox">    
+        <div id="navimg">  <img src="image/navbarimg1.jpg" alt="Top Offers"> </div>
+        <div id="imghead"> <a> Top Offers </a> </div>
+    </div>
+
+    <div id="navimgmainbox">
+        <div id="navimg">  <img src="image/navbarimg2.jpg" alt="Grocery"> </div>
+        <div id="imghead"> <a> Grocery </a> </div>
+    </div>
+
+    <div id="navimgmainbox">
+        <div id="navimg"> <img src="image/navbarimg3.jpg" alt="Mobiles"> </div>
+        <div id="imghead"> <a> Mobiles </a> </div>
+    </div>
+
+    <div id="navimgmainbox">
+        <div id="navimg">  <img src="image/navbarimg4.jpg" alt="Fashion"> </div>
+        <div id="imghead"> <a>  Fashion </a> </div>
+    </div>
+
+    <div id="navimgmainbox">
+        <div id="navimg">  <img src="image/navbarimg5.jpg" alt="Electronics"> </div>
+        <div id="imghead"> <a> Electronics </a> </div>
+    </div>
+
+    <div id="navimgmainbox">
+        <div id="navimg">  <img src="image/navbarimg6.jpg" alt="Home"> </div>
+        <div id="imghead"> <a> Home </a> </div>
+    </div>
+
+    <div id="navimgmainbox">
+        <div id="navimg">  <img src="image/navbarimg7.jpg" alt="Travels"> </div>
+        <div id="imghead"> <a> Travels </a> </div>
+    </div>
+
+    <div id="navimgmainbox">
+        <div id="navimg">  <img src="image/navbarimg8.jpg" alt="Toys"> </div>
+        <div id="imghead"> <a> Toys </a> </div>
+    </div>
+
+
+</div>
+
+<div id="quicksearch"></div>
+
+<div id="search" >
+    
+        <div id="box"> 
+            
+            <p id="boxhead"> Automotive essentials | Up to 60% off </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/cleaning accessories .jpg" alt="cleaning accessories"> </div>
+                <div class="sub2"> <a href="listingpage1.html" target="blank"> cleaning Accessories </a>  </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"><img src="image/Tyer and rim care.jpg" alt="Tyer and rim care"> </div>
+                <div class="sub2"> <a href="listingpage1.html" target="blank">Tyer and rim care </a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"><img src="image/Helmet.jpg" alt="Helmet"></div>
+                <div class="sub2"> <a href="listingpage1.html" target="blank">Helmet </a></div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Vacuum cleaner.jpg" alt="Vacuum cleaner"></div>
+                <div class="sub2"> <a href="listingpage1.html" target="blank"> cleaner </a> </div>
+            </div>
+            <a href="listingpage1.html" target="blank" id="boxfooter"> See more </a> 
+        </div>
+
+        <div id="box">
+            <p id="boxhead"> Amazon Pay | Book Your Travel Tickets </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/flight tickets.jpg" alt="flight"> </div>
+                <div class="sub2"> <a  href="listingpage1.html" target="blank">Flight Tickets </a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Bus tickets.jpg" alt="Bus"> </div>
+                <div class="sub2"><a  href="listingpage1.html" target="blank">Bus Tickets</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/train tickets .jpg" alt="train"> </div>
+                <div class="sub2"> <a  href="listingpage1.html" target="blank">Train Tickets </a></div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Essential Travel product.jpg" alt="Essential"> </div>
+                <div class="sub2"><a  href="listingpage1.html" target="blank">Essential Travel Product </a> </div>
+            </div>
+            <a  href="listingpage1.html" target="blank" id="boxfooter"> Exploar more from Amazon Pay </a>
+        </div>
+        
+        <div id="box">
+            <p id="boxhead"> Men's Fashion | get upto 50% off </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Clothing for men.jpg " alt="Clothing"> </div>
+                <div class="sub2"><a  href="listingpage2.html" target="blank"> Clothing </a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Footwear for men.jpg" alt="Footwear"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Footwear</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Watches.jpg" alt="Watches"></div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank">Watches </a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Bags & luggage.jpg" alt="Bags & luggage"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank">Bags & luggage </a></div>
+            </div>
+            <a  href="listingpage2.html" target="blank" id="boxfooter"> See more </a>
+        </div>
+        
+
+        <div id="box" class="col-lg-3 col-md-4">
+            <p id="boxhead"> Pay your credit card bills on Amazon </p>
+            <div class="box">
+                <div class="type2sub1"> <img src="image/Credit card .jpg" alt="Credit card"> </div>
+            </div>
+            <a  id="boxfooter"> Pay now </a>
+        </div>
+
+       
+
+        <div id="box">
+            <p id="boxhead"> Women's Fashion | get upto 60% off </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/clothes for women .jpg " alt="Clothing"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank">Clothing</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Jewellery for women.jpg" alt="Jewellery"> </div>
+                <div class="sub2"><a  href="listingpage2.html" target="blank"> Jewellery </a></div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Makeup of women.jpg" alt="Makeup"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank">Makeup</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/footwear for women.jpg" alt="Footwear"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank">Footwear</a> </div>
+            </div>
+            <a  href="listingpage2.html" target="blank" id="boxfooter"> See more </a>
+        </div>
+
+        <div id="box">
+            <p id="boxhead"> Professional tools & testing | Upto 35% off </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Professional tools.jpg " alt="Professional tools"> </div>
+                <div class="sub2"> <a  href="listingpage1.html" target="blank">Professional tools</a>  </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Measuring instruments .jpg" alt="Measuring instruments"> </div>
+                <div class="sub2"><a  href="listingpage1.html" target="blank"> Measuring instruments</a>  </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Cleaning supplies .jpg" alt="Cleaning supplies"> </div>
+                <div class="sub2"> <a  href="listingpage1.html" target="blank">Cleaning supplies</a>  </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Medical supplies .jpg" alt="Medical supplies "> </div>
+                <div class="sub2"><a  href="listingpage1.html" target="blank"> Medical supplies</a>   </div>
+            </div>
+            <a  href="listingpage1.html" target="blank" id="boxfooter"> See more </a>
+        </div>
+
+        <div id="box">
+            <p id="boxhead"> Get Up to 45% off | Shop by pet </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Dog Supplies.jpg " alt="Dog Supplies"> </div>
+                <div class="sub2"><a  href="listingpage1.html" target="blank"> Dog Supplies</a>  </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Cat supplies .jpg" alt="Cat supplies"> </div>
+                <div class="sub2"> <a  href="listingpage1.html" target="blank">Cat supplies </a>  </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Birds & Small animals.jpg" alt="Birds & Small animals"> </div>
+                <div class="sub2"><a  href="listingpage1.html" target="blank"> Birds & Small animals </a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Aquarium accessories .jpg" alt="Aquarium accessories"> </div>
+                <div class="sub2"><a  href="listingpage1.html" target="blank">Aquarium accessories </a> </div>
+            </div>
+            <a  href="listingpage1.html" target="blank" id="boxfooter"> See all details </a>
+        </div>
+
+        <div id="box">
+            <p id="boxhead"> Professional tools & testing | Upto 35% off </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Professional tools.jpg " alt="Professional tools"> </div>
+                <div class="sub2"> <a  href="listingpage1.html" target="blank">Professional tools</a>  </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Measuring instruments .jpg" alt="Measuring instruments"> </div>
+                <div class="sub2"><a  href="listingpage1.html" target="blank"> Measuring instruments</a>  </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Cleaning supplies .jpg" alt="Cleaning supplies"> </div>
+                <div class="sub2"> <a  href="listingpage1.html" target="blank">Cleaning supplies</a>  </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Medical supplies .jpg" alt="Medical supplies "> </div>
+                <div class="sub2"><a  href="listingpage1.html" target="blank"> Medical supplies</a>   </div>
+            </div>
+            <a  href="listingpage1.html" target="blank" id="boxfooter"> See more </a>
+        </div>
+       
+
+        <div id="longbox">
+            <p id="boxhead"> Up to 50% off on kitchen & dining products | Small businesses </p>
+            <div id="first">  <img src="image/kitchen 1.jpg" alt="kitchen1"> </div>
+            <div id="first">  <img src="image/kitchen 2.jpg" alt="kitchen2"> </div>
+            <div id="first">  <img src="image/kitchen 3.jpg" alt="kitchen3"> </div>
+            <div id="first">  <img src="image/kitchen 4.jpg" alt="kitchen4"> </div>
+            <div id="first">  <img src="image/kitchen 5.jpg" alt="kitchen5"> </div>
+            <div id="first">  <img src="image/kitchen 6.jpg" alt="kitchen6"> </div> 
+        </div>
+        
+
+            <p id="boxhead2"> Shopping in Amazon for your family or your Love once </p>
+
+        <div id="box">
+            <p id="boxhead"> Kid's Fashion | get upto 45% off </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/clothes for kids.jpg " alt="Clothing"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Clothing </a></div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Watches for kids .jpg" alt="Watches"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Watches</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Footwear .jpg" alt="Footwear"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Footwear </a></div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Sunglasses for kids.jpg" alt="Sunglasses"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Glasses</a> </div>
+            </div>
+            <a href="listingpage2.html" target="blank" id="boxfooter"> See more </a>
+        </div>
+
+        <div id="box">
+            <p id="boxhead"> Electronics devices for home office </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Smartwatches.jpg" alt="Smartwatches"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Smartwatches </a></div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Tablets.jpg" alt="Tablets"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Tablets </a></div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Laptops.jpg" alt="Laptops"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Laptops</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Monitors .jpg" alt="Monitors"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Monitors </a></div>
+            </div>
+            <a href="listingpage2.html" target="blank" id="boxfooter"> See more </a>
+        </div>
+        
+        <div id="box">
+            <p id="boxhead"> Shop on Amazon by The Category </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Fresh.jpg " alt="Fresh"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank">  Fresh</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Category mobile .jpg" alt="mobile"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Mobiles</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Category Fashion .jpg" alt="Fashion"> </div>
+                <div class="sub2"><a  href="listingpage2.html" target="blank">  Fashion </a></div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Category Electronics .jpg" alt="Electronics"> </div>
+                <div class="sub2"><a  href="listingpage2.html" target="blank">  Electronics </a></div>
+            </div>
+            <a href="listingpage2.html" target="blank" id="boxfooter"> See more </a>
+        </div>
+        
+        <div id="box">
+            <p id="boxhead"> For your little one | Amazon brands & more </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Remote control cars .jpg" alt="Remote control cars"> </div>
+                <div class="sub2"><a  href="listingpage2.html" target="blank">  Remote control cars </a></div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Soft toys.jpg" alt="Soft toys"> </div>
+                <div class="sub2"><a  href="listingpage2.html" target="blank">  Soft toys</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Puzzles .jpg" alt="Puzzles"> </div>
+                <div class="sub2"><a  href="listingpage2.html" target="blank">  Puzzles & toys </a></div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Baby Products.jpg" alt="Baby Products"> </div>
+                <div class="sub2"><a  href="listingpage2.html" target="blank">  Baby Products </a></div>
+            </div>
+            <a href="listingpage2.html" target="blank" id="boxfooter"> See more </a>
+        </div>
+        
+
+        <div id="quicksearch1"></div>
+
+        
+
+        <div id="box">
+            <p id="boxhead"> Up to 70% off | Clearance Store </p>
+            <div class="box">
+                <div class="type2sub1"> <img src="image/Clearance store.jpg" alt="Clearance store"> </div>
+            </div>
+            <a id="boxfooter"> See more </a>
+        </div>
+
+        <div id="box">
+            <p id="boxhead"> New arrivals collection from lacal shops </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Kitchen  essentials .jpg" alt="Kitchen  essentials"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Kitchen  essentials</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Glassware .jpg" alt="Glassware"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Glassware & serveware</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Exquisite carpets .jpg" alt="Exquisite carpets"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Exquisite carpets</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Furniture .jpg" alt="Furniture"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Furniture</a> </div>
+            </div>
+            <a href="listingpage2.html" target="blank" id="boxfooter"> Exploar more from local shops </a>
+        </div>
+
+        <div id="box">
+            <p id="boxhead"> Essentials for Expecting Mothers </p>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Pregnancy supplements.jpg" alt="Pregnancy supplements"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Pregnancy supplements </a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1"> <img src="image/Maternity Sleep.jpg" alt="Maternity Sleep"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Maternity Sleep</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Maternity pillows.jpg" alt="Maternity pillows"> </div>
+                <div class="sub2"><a  href="listingpage2.html" target="blank">  Maternity pillows</a> </div>
+            </div>
+            <div class="box1">
+                <div class="sub1">  <img src="image/Maternity Skin Care.jpg" alt="Maternity Skin Care"> </div>
+                <div class="sub2"> <a  href="listingpage2.html" target="blank"> Maternity Skin Care </a></div>
+            </div>
+            <a href="listingpage2.html" target="blank" id="boxfooter"> See more </a>
+        </div>
+
+        <div id="box" class="col-lg-3">
+            <p id="boxhead"> Kitchen organizers by local shops </p>
+            <div class="box">
+                <div class="type2sub1"> <img src="image/local shop.jpg" alt="Kitchen organizers "> </div>
+            </div>
+            <a id="boxfooter"> Visit the local shops store </a>
+        </div>
+
+</div>
+
+
+<div id="footer">
+    
+    <div id="footercontainer">
+        <div> Get to Know Us </div>
+        <div> <a> About Us </a> </div>
+        <div> <a> Careers </a> </div>
+        <div> <a> Press Releases </a> </div>
+        <div> <a> Amazon Cares </a> </div>
+        <div> <a> Gift a Smile </a> </div>
+        <div> <a> Amazon Science </a> </div>
+    </div>
+
+    <div id="footercontainer">
+        <div> Connect with Us </div>
+        <div> <a> Facebook </a> </div>
+        <div> <a> Twitter </a> </div>
+        <div> <a> Instagram </a> </div>
+    </div>
+    
+    <div id="footercontainer">
+        <div> Make Money with Us </div>
+        <div> <a> Sell on Amazon </a> </div>
+        <div> <a> Sell under Amazon Accelerator </a> </div>
+        <div> <a> Amazon Global Selling  </a> </div>
+        <div> <a> Become an Affiliate </a> </div>
+        <div> <a> Fulfilment by Amazon </a> </div>
+        <div> <a> Advertise Your Products </a> </div>           
+         <div> <a> Amazon Pay on Merchants </a> </div>
+    </div>
+
+    <div id="footercontainer">
+        <div> Let Us Help You </div>
+        <div> <a> COVID-19 and Amazon </a> </div>
+        <div> <a> Your Account </a> </div>
+        <div> <a> Returns Centre </a> </div>
+        <div> <a> Amazon App Download </a> </div>
+        <div> <a> Amazon Assistant Download </a> </div>
+        <div> <a> Help </a> </div>
+    </div>
+
+</div>
+
+<script>
+    window.onload= loadCoupon()
+</script>
+
+</body>
+
+
+</html>

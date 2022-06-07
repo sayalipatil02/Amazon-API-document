@@ -1,0 +1,137 @@
+body{
+    margin: auto;
+}
+#header{
+    height: 60px;
+    width: 100%;
+    background-color: black;
+    
+}
+  
+#topic{
+    font-size: 40px;
+    color:#ffffff;
+    font-weight: bold;
+    margin-left: 10px;
+    float: left;
+}
+#social{
+    float: right;
+}
+
+.slogo{
+    height: 50px;
+    width: 50px;
+}
+
+.headingtext{
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+#maincontent{
+    height: 1450px;
+    width: 90%;
+    margin-left: 5%;
+    margin-top: 10px;
+    
+}
+
+#filter{
+    height: 500px;
+    width: 20%;
+    border:2px solid green;
+    float: left;
+    margin-left: 2%;
+}
+
+#content{
+    height: 855px;
+    width: 73%;
+    float:left;
+    margin-left: 2%;
+}
+
+.box{
+    height: 316px;
+    width: 28%;
+    border:2px solid #8d8181;
+    display:inline-block;
+    margin-left:4% ;
+    margin-top: 30px;
+   
+}
+.box1{height: 221px;
+    width: 100%;
+}
+.box1 > img{
+    height: 221px;
+    width: 100%;
+}
+.box2{height: 95px;
+    width: 100%;
+    background-color:#e7d6d9;  
+}
+.boxheading{
+    font-weight: bold;
+    font-style: italic;
+    font-size: 28px;
+    text-align: center;
+    color: black;
+}
+.boxsubheading1{
+    
+    font-size: 22px;
+    margin-top: 1%;
+    color: black
+}
+.boxsubheading2{
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 1%;
+    color: red;
+}
+
+.boxsubheading3{
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 5%;
+    color:#efeff1;
+    background-color:#2b282b ;
+    margin-left: 35%;
+}
+.filterbox{
+    font-size: 25px;
+    text-align: center;
+    font-weight: bold;
+}
+#footer{
+    height: 70px;
+    width: 100%; 
+}
+    
+
+#foottext{
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
+    color: black;
+}
+
+
+#footer{
+    height:300px;
+    width:100%;
+    background-color: #141212;
+    margin-top: 0px;
+}
+
+#footercontainer{
+    float: left;
+    margin-left: 10%;
+    margin-top: 70px;
+    font-size: 16px;
+    color:white;
+}
