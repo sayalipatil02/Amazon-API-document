@@ -1,2 +1,5 @@
 // page 1 
 //to get all the product available
+(Get) http://localhost:9100/item/:collections
+//list of city
+(Get) http://localhost:9100/item/:location

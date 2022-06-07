@@ -27,7 +27,7 @@ app.get('/location',(req,res) =>{
 
 
 app.get('/item/:collections',(req,res) =>{
-    db.collection('mealType').find().toArray((err,result)=>{
+    db.collection('item/:collections').find().toArray((err,result)=>{
         if(err) throw err;
         res.send(result)
     })
